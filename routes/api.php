@@ -18,8 +18,6 @@ use Illuminate\Http\Request;
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
 
-//Route::resource('todos', 'TodoController');
-
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::resource('todos', 'TodoController');
 });
