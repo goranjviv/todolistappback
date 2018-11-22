@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('title');
-            $table->string('text', 1000);
+            $table->string('text', 1000)->nullable();
             $table->integer('priority');
             $table->boolean('done');
             $table->timestamps();
