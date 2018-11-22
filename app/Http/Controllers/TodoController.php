@@ -44,9 +44,8 @@ class TodoController extends Controller
     {
         if ($todo->user_id == Auth::user()->id) {
             return $todo;
-        } else {
-            return response()->json(['status' => 'Not Found'], 404);
         }
+        return response()->json(['status' => 'Not Found'], 404);
     }
 
     /**
@@ -61,9 +60,8 @@ class TodoController extends Controller
         if ($todo->user_id == Auth::user()->id) {
             $todo->update($request->only('done', 'text', 'title', 'priority'));
             return response()->json($todo, 200);
-        } else {
-            return response()->json(['status' => 'Not Found'], 404);
         }
+        return response()->json(['status' => 'Not Found'], 404);
     }
 
     /**
@@ -77,8 +75,7 @@ class TodoController extends Controller
         if ($todo->user_id == Auth::user()->id) {
             $todo->delete();
             return response()->json(null, 204);
-        } else {
-            return response()->json(['status' => 'Not Found'], 404);
         }
+        return response()->json(['status' => 'Not Found'], 404);
     }
 }
